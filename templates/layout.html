@@ -46,8 +46,21 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
-          <!-- Se va a sustituir este bloque en función de cada página -->
-          {% block content %}{% endblock %}
+            <!-- Se pasan los mensajes flash. With categories coge el estado success que se le pasa con el mensaje-->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                <!-- Si hay mensajes -->
+                {% if messages %}
+                    <!-- Bucle para que se muestren todos los mensajes que lleguen.
+                    En funcion de su categoria tendrán estilos diferentes-->
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <!-- Se va a sustituir este bloque en función de cada página -->
+            {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
           <div class="content-section">
