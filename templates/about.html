@@ -1,0 +1,23 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <head>
+    Queremos mostrar titulo pero si no viene en el render, mostrar uno por defecto
+    {% if title %}
+        <title>Flask Blog - {{ title }}</title>
+    {% else %}
+        <title>Flask Blog</title>
+    {% endif %}
+</head>
+</head>
+<body>
+    <h1>ABOUT</h1>
+</body>
+</html>
+-->
+
+<!-- PARA CARGAR LOS DATOS COMUNES DEL HTML que se encuentra en layout.html hacemos lo siguiente-->
+{% extends "layout.html" %}
+{% block content %}
+    <h1>ABOUT</h1>
+{% endblock content %}
